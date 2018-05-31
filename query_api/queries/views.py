@@ -20,7 +20,6 @@ def get_call_list(form, field_name):
     return field_list
 
 
-
 # Create your views here.
 def redirect_home(request):
     return redirect('home')
@@ -66,20 +65,21 @@ def home(request):
         #   Some keys are only shown if there is a value.
         #   So need to determine all keys in all JSON responses, then run
         #   values = [json_entry] + [(json_info[key] if key in json_info else '') for key in keys]
-
+                
         if is_raw:
-            first_entry = list(demo.json().keys())[0]
-            keys = demo.json()[first_entry].keys()
-            keys = list(keys)
+            #Sorted alphabetically
+            keys = ['authors', 'by_statement', 'identifiers', 'key', 'notes', 
+                'number_of_pages', 'pagination', 'publish_date', 'publish_places', 
+                'publishers', 'subject_places', 'subjects', 'subtitle', 'title', 'url']
 
             for json_entry in demo.json():
                 
                 json_info = demo.json()[json_entry]
 
-                values = [json_entry] + list(json_info.values())
+                values = [json_entry] + [(json_info[key] if key in json_info else '') for key in keys]
+                #values = [json_entry] + list(json_info.values())
                 all_results.append(values)                 
 
-        
         #show customized response
         else:
             keys = ['title', 'authors', 'publishers', 'publish_date', 'number_of_pages','url']
