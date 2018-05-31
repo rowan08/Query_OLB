@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from .forms import OLBooksAPIForm
 import requests
@@ -24,6 +25,7 @@ def get_call_list(form, field_name):
 def redirect_home(request):
     return redirect('home')
 
+@login_required
 def home(request):
 
     form = OLBooksAPIForm(request.POST)

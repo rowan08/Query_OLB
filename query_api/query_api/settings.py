@@ -52,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'urls'
+LOGIN_URL = 'login'
 
 TEMPLATES = [
     {

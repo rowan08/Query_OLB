@@ -4,6 +4,9 @@
 <div class="container">
     <h1>{{ title }}</h1>
     <h4>{{ description }}</h4>
+    {% if login_page %}
+        <p>Not registered? Please click <a href={% url 'register' %}>here</a> to register</p>
+    {% endif %}
     <br>
     <form class="form-inline" method="post">
         {% csrf_token %}

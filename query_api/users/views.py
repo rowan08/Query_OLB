@@ -30,7 +30,7 @@ def login_view(request):
     form = UserLoginForm(request.POST)
     title = 'Login'
     description = 'Please login to view page content'
-    context = {'form':form, 'title':title, 'description':description}
+    context = {'form':form, 'title':title, 'description':description, 'login_page':True}
     
     if form.is_valid():
         username = form.cleaned_data.get('username')
