@@ -4,15 +4,19 @@
 <div class="container">
     <h1>{{ title }}</h1>
     <h4>{{ description }}</h4>
-    {% if login_page %}
+    {% if register_page %}
+        <p>Already registered? Please click <a href={% url 'login' %}>here</a> to login</p>
+    {% elif login_page %}
         <p>Not registered? Please click <a href={% url 'register' %}>here</a> to register</p>
     {% endif %}
     <br>
-    <form class="form-inline" method="post">
+    
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <br>
         <button class="btn btn-default" type="submit">Submit</button>
     </form>
+
 </div>
 {% endblock %}

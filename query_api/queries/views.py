@@ -60,12 +60,6 @@ def home(request):
         is_raw = form.cleaned_data.get('show_raw')
         
         #Show 'raw' response returned by API
-        
-        #Need to do:
-        #   Some keys are only shown if there is a value.
-        #   So need to determine all keys in all JSON responses, then run
-        #   values = [json_entry] + [(json_info[key] if key in json_info else '') for key in keys]
-                
         if is_raw:
             #Sorted alphabetically
             keys = ['authors', 'by_statement', 'identifiers', 'key', 'notes', 
@@ -80,7 +74,7 @@ def home(request):
                 #values = [json_entry] + list(json_info.values())
                 all_results.append(values)                 
 
-        #show customized response
+        #Show customized response
         else:
             keys = ['title', 'authors', 'publishers', 'publish_date', 'number_of_pages','url']
 
