@@ -1,0 +1,40 @@
+{% extends 'queries/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1>{{ title }}</h1>
+  <h4>{{ description }}</h4>
+  <br>
+  <form class="form-inline" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <button class="btn btn-default" type="submit">Submit</button>
+  </form>
+
+  <br>
+  <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            {% for key in keys %}
+                <th>{{ key }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        
+        <tbody>
+          {% for values in all_results %}
+          <tr>
+            {% for value in values %}
+                <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+</div>
+
+{% endblock %}
