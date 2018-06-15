@@ -25,7 +25,7 @@ SECRET_KEY = 'pinsgpw&1!i^&x=d*6k9m-$n_=tmvo0%l8syj6jbmzq^=t@c(x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
